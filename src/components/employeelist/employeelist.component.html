@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="mt-4">
+        <table class="table">
+          <thead>
+            <th>SNO</th>
+            <th>Name</th>
+            <th>Designation</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </thead>
+          <tbody>
+            <tr *ngIf="empResult.length <= 0">
+              <p>no records pls try after sometime</p>
+            </tr>
+            <tr *ngFor="let emp of empResult">
+              <td>{{ emp.id }}</td>
+              <td>{{ emp.empName }}</td>
+              <td>{{ emp.designation }}</td>
+              <td>
+                <input type="checkbox" disabled [checked]="emp.active" />
+              </td>
+              <td>
+                <button class="btn btn-info btn-sm mr-2">Edit</button>
+                <button class="btn btn-danger btn-sm">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>{{ errMessage }}</p>
+    </div>
+  </div>
+</div>
