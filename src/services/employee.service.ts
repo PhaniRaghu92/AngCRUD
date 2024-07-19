@@ -18,8 +18,7 @@ export class EmployeeService {
         for (let emp of empData) {
           empModifedData.push({
             ...emp,
-            // empName: `${emp.empName}_modifiedinmap`,
-            empName: emp.empName + '_modifiedinmap',
+            empName: `${emp.empName}_modifiedinmap`,
           });
         }
         return empData;
@@ -29,5 +28,12 @@ export class EmployeeService {
 
   getAllEmployees(): Observable<Employee[]> {
     return this.httpClient.get<Employee[]>(`${this.baseURL}/employees`);
+  }
+
+  //delete
+  deleteEmployee(empno: number): Observable<Employee> {
+    return this.httpClient.delete<Employee>(
+      `${this.baseURL}/employees/${empno}`
+    );
   }
 }

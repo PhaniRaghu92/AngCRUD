@@ -12,6 +12,11 @@ export class EmployeelistComponent implements OnInit {
   public errMessage: string = '';
   constructor(private empService: EmployeeService) {}
   ngOnInit(): void {
+    this.getAllEmployees();
+  }
+
+  //getallEmployees
+  private getAllEmployees(): void {
     this.empService.getAllEmployees().subscribe(
       (res: Employee[]) => {
         this.empResult = res;
@@ -20,5 +25,19 @@ export class EmployeelistComponent implements OnInit {
         this.errMessage = err.message;
       }
     );
+  }
+  //delete
+  handleDelete(empno: number): void {
+    const uRes = window.confirm('Are you sure to delete?');
+    if (uRes) {
+      this.empService.deleteEmployee(empno).subscribe(
+        (d) => {
+          this.getAllEmployees();
+        },
+        (e) => {
+          this.errMessage = e.message;
+        }
+      );
+    }
   }
 }
