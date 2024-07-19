@@ -1,0 +1,96 @@
+<button
+  type="button"
+  class="btn btn-primary"
+  data-toggle="modal"
+  data-target="#exampleModal"
+>
+  Create New..
+</button>
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-success">
+        <h5 class="modal-title text-white" id="exampleModalLabel">
+          Create New Employee
+        </h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body bg-light">
+        <form class="p-3">
+          <div class="form-group row">
+            <label class="form-check-label col-sm-3" for="sno">Serial No</label>
+            <input
+              class="form-control col-sm-9"
+              text="number"
+              name="serialNo"
+              id="sno"
+            />
+          </div>
+
+          <div class="form-group row">
+            <label class="form-check-label col-sm-3" for="name">Name</label>
+            <input
+              class="form-control col-sm-9"
+              type="text"
+              name="name"
+              id="name"
+            />
+          </div>
+          <div class="form-group row">
+            <label class="form-check-label col-sm-3" for="sno"
+              >Desgination</label
+            >
+            <input
+              class="form-control col-sm-9"
+              text="text"
+              name="Desgination"
+              id="Desgination"
+            />
+          </div>
+          <div class="form-group row">
+            <label class="form-check-label col-sm-3" for="location"
+              >Location</label
+            >
+            <select class="form-control col-sm-9" name="location" id="location">
+              <option value="">--SELECT--</option>
+              <option value="CHENNAI">CHENNAI</option>
+              <option value="BGR">BANGALORE</option>
+              <option value="HYD">HYDERABAD</option>
+            </select>
+          </div>
+
+          <div class="form-group row">
+            <label class="form-check-label col-sm-3" for="status">status</label>
+            <input
+              class="form-check-input col-sm-9"
+              type="checkbox"
+              value=""
+              id="status"
+            />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Cancel
+        </button>
+        <button type="button" class="btn btn-primary">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
