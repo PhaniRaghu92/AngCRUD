@@ -26,6 +26,7 @@ export class EmployeeService {
     );
   }
 
+  //get
   getAllEmployees(): Observable<Employee[]> {
     return this.httpClient.get<Employee[]>(`${this.baseURL}/employees`);
   }
@@ -35,5 +36,10 @@ export class EmployeeService {
     return this.httpClient.delete<Employee>(
       `${this.baseURL}/employees/${empno}`
     );
+  }
+
+  //POST
+  createEmployee(emp: Employee): Observable<Employee> {
+    return this.httpClient.post<Employee>(`${this.baseURL}/employees`, emp);
   }
 }
