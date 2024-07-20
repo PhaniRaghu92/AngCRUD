@@ -8,6 +8,7 @@
             <th>SNO</th>
             <th>Name</th>
             <th>Designation</th>
+            <th>Location</th>
             <th>Status</th>
             <th>Actions</th>
           </thead>
@@ -17,13 +18,60 @@
             </tr>
             <tr *ngFor="let emp of empResult">
               <td>{{ emp.id }}</td>
-              <td>{{ emp.empName }}</td>
-              <td>{{ emp.designation }}</td>
+              <!-- <td>{{ emp.empName }}</td> -->
               <td>
-                <input type="checkbox" disabled [checked]="emp.active" />
+                <input
+                  *ngIf="emp.id === editId"
+                  type="text"
+                  name="empnamme"
+                  class="form-control"
+                  [(ngModel)]="emp.empName"
+                />
+                <span *ngIf="emp.id != editId">{{ emp.empName }}</span>
               </td>
               <td>
-                <button class="btn btn-info btn-sm mr-2">Edit</button>
+                <input
+                  *ngIf="emp.id === editId"
+                  type="text"
+                  name="designation"
+                  class="form-control"
+                  [(ngModel)]="emp.designation"
+                />
+                <span *ngIf="emp.id != editId"> {{ emp.designation }}</span>
+              </td>
+              <td>
+                <select
+                  *ngIf="emp.id === editId"
+                  name="designation"
+                  [(ngModel)]="emp.location"
+                  class="form-control"
+                >
+                  <option value="">--SELECT--</option>
+                  <option value="CHN">CHENNAI</option>
+                  <option value="BGR">BANGALORE</option>
+                  <option value="HYD">HYDERABAD</option>
+                </select>
+                <span *ngIf="emp.id != editId">{{ emp.location }}</span>
+              </td>
+              <td>
+                <input
+                  type="checkbox"
+                  [(ngModel)]="emp.active"
+                  [disabled]="emp.id != editId"
+                  [checked]="emp.active"
+                />
+              </td>
+              <td>
+                <button
+                  (click)="
+                    this.editId === emp.id
+                      ? handleUpdate(emp, emp.id)
+                      : handleEdit(emp.id)
+                  "
+                  class="btn btn-info btn-sm mr-2"
+                >
+                  {{ this.editId === emp.id ? "Update" : "Edit" }}
+                </button>
                 <button
                   (click)="handleDelete(emp.id)"
                   class="btn btn-danger btn-sm"

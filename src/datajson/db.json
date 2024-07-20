@@ -2,43 +2,22 @@
   "employees": [
     {
       "id": "1",
-      "empName": "Hari",
-      "designation": "HW Eng",
-      "location": "HYD",
+      "empName": "HARU",
+      "designation": "TEST ENG",
+      "location": "BGR",
       "active": true
     },
     {
       "id": "2",
-      "empName": "Giri",
-      "designation": "SW Eng",
-      "location": "CHN",
+      "empName": "SIRU",
+      "designation": "dessignnation",
+      "location": "BGR",
       "active": false
     },
     {
-      "empName": "Giri_New",
-      "designation": "SW Eng_NE",
-      "location": "CHN_NEW",
-      "active": false,
-      "id": "3"
-    },
-    {
-      "id": 400,
-      "empName": "Siri",
-      "designation": "Test Enginner",
-      "location": "CHN",
-      "active": true
-    },
-    {
-      "id": 500,
+      "id": "3",
       "empName": "Vari",
-      "designation": "DEV2",
-      "location": "HYD",
-      "active": true
-    },
-    {
-      "id": 543,
-      "empName": "sdfdsfgd",
-      "designation": "sdgsdfgfdsgfs",
+      "designation": "Dev",
       "location": "CHN",
       "active": true
     }

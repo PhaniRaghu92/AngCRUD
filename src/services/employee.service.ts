@@ -32,7 +32,7 @@ export class EmployeeService {
   }
 
   //delete
-  deleteEmployee(empno: number): Observable<Employee> {
+  deleteEmployee(empno: string): Observable<Employee> {
     return this.httpClient.delete<Employee>(
       `${this.baseURL}/employees/${empno}`
     );
@@ -41,5 +41,14 @@ export class EmployeeService {
   //POST
   createEmployee(emp: Employee): Observable<Employee> {
     return this.httpClient.post<Employee>(`${this.baseURL}/employees`, emp);
+  }
+
+  //update put
+  //localhost:6000/employees/id
+  updateEmployee(updateEmp: Employee, id: string): Observable<Employee> {
+    return this.httpClient.put<Employee>(
+      `${this.baseURL}/employees/${id}`,
+      updateEmp
+    );
   }
 }

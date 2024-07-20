@@ -10,6 +10,9 @@ import { EmployeeService } from '../../services/employee.service';
 export class EmployeelistComponent implements OnInit {
   public empResult: Employee[] = [];
   public errMessage: string = '';
+
+  public editId: string = '';
+
   constructor(private empService: EmployeeService) {}
   ngOnInit(): void {
     this.getAllEmployees();
@@ -27,7 +30,7 @@ export class EmployeelistComponent implements OnInit {
     );
   }
   //delete
-  handleDelete(empno: number): void {
+  handleDelete(empno: string): void {
     const uRes = window.confirm('Are you sure to delete?');
     if (uRes) {
       this.empService.deleteEmployee(empno).subscribe(
@@ -39,5 +42,22 @@ export class EmployeelistComponent implements OnInit {
         }
       );
     }
+  }
+
+  //handleEdit
+
+  handleEdit(id: string): void {
+    this.editId = id;
+  }
+
+  handleUpdate(updatedEmp: Employee, id: string): void {
+    this.empService.updateEmployee(updatedEmp, id).subscribe(
+      (d) => {
+        window.location.href = '/';
+      },
+      (err) => {
+        alert('something went wrong during update');
+      }
+    );
   }
 }

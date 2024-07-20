@@ -1,5 +1,5 @@
 export class Employee {
-  public id: number = 0;
+  public id: string = '0';
   public empName?: string = '';
   public designation?: string = '';
   public location?: string = '';
