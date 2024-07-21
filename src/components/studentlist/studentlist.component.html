@@ -1,0 +1,90 @@
+<div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="mt-4">
+          <app-create-student></app-create-student>
+          <table class="table">
+            <thead>
+              <th>SNO</th>
+              <th>Name</th>
+              <th>Designation</th>
+              <th>Location</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </thead>
+            <tbody>
+              <tr *ngIf="stdResult.length <= 0">
+                <p>no records pls try after sometime</p>
+              </tr>
+              <tr *ngFor="let std of stdResult">
+                <td>{{ std.id }}</td>
+                <td>
+                  <input
+                    *ngIf="std.id === editId"
+                    type="text"
+                    name="stdnamme"
+                    class="form-control"
+                    [(ngModel)]="std.stdName"
+                  />
+                  <span *ngIf="std.id != editId">{{ std.stdName }}</span>
+                </td>
+                <td>
+                  <input
+                    *ngIf="std.id === editId"
+                    type="text"
+                    name="designation"
+                    class="form-control"
+                    [(ngModel)]="std.designation"
+                  />
+                  <span *ngIf="std.id != editId"> {{ std.designation }}</span>
+                </td>
+                <td>
+                  <select
+                    *ngIf="std.id === editId"
+                    name="designation"
+                    [(ngModel)]="std.location"
+                    class="form-control"
+                  >
+                    <option value="">--SELECT--</option>
+                    <option value="CHN">CHENNAI</option>
+                    <option value="BGR">BANGALORE</option>
+                    <option value="HYD">HYDERABAD</option>
+                    <option value="SEC">SECANDRABAD</option>
+                  </select>
+                  <span *ngIf="std.id != editId">{{ std.location }}</span>
+                </td>
+                <td>
+                  <input
+                    type="checkbox"
+                    [(ngModel)]="std.active"
+                    [disabled]="std.id != editId"
+                    [checked]="std.active"
+                  />
+                </td>
+                <td>
+                  <button
+                    (click)="
+                      this.editId === std.id
+                        ? handleUpdate(std, std.id)
+                        : handleEdit(std.id)
+                    "
+                    class="btn btn-info btn-sm mr-2"
+                  >
+                    {{ this.editId === std.id ? "Update" : "Edit" }}
+                  </button>
+                  <button
+                    (click)="handleDelete(std.id)"
+                    class="btn btn-danger btn-sm"
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>{{ errMessage }}</p>
+      </div>
+    </div>
+  </div>
+  

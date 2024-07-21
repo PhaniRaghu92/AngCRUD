@@ -1,0 +1,32 @@
+{
+  "students": [
+    {
+      "id": "2",
+      "stdName": "Gopi",
+      "designation": "dessignnation",
+      "location": "BGR",
+      "active": false
+    },
+    {
+      "id": "3",
+      "stdName": "Hari dev",
+      "designation": "er",
+      "location": "HYD",
+      "active": true
+    },
+    {
+      "id": "1",
+      "stdName": "Raghavendra",
+      "designation": "tata",
+      "location": "SEC",
+      "active": true
+    },
+    {
+      "id": "1",
+      "stdName": "Raghavendra",
+      "designation": "tata",
+      "location": "BGR",
+      "active": true
+    }
+  ]
+}
