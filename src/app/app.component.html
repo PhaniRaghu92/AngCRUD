@@ -4,4 +4,16 @@
 
 <div class="container-fluid">
   <app-employeelist></app-employeelist>
+
+  <div class="container">
+    <div class="card">
+      <div class="card-header bg-success text-white">Directive example</div>
+      <div class="card-body bg-light h-50">
+        <div class="alert alert-danger">Some Error accured Normal-alert</div>
+      </div>
+    </div>
+    <div appCButton></div>
+    <div appCButton [type]="'danger'" [btnValue]="'danger btn'"></div>
+    <div appCButton [type]="'warning btn'" [btnValue]="'warning button'"></div>
+  </div>
 </div>
